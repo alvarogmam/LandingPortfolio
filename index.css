@@ -1,5 +1,5 @@
 /*----Google fonts----*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 /*----Variables----*/
 :root {
@@ -13,7 +13,7 @@
     --acento-color: #646464;
 
     /*----Tipografía----*/
-    --body-font: 'Montserrat', sans-serif; 
+    --body-font: 'Nunito Sans', sans-serif; 
 
     /*--- Tamaño de fuente----*/
     --big-font-size: 3.5rem;
@@ -59,3 +59,100 @@
     }
 }
 
+/*----Base----*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}   
+
+html {
+    scroll-behavior: smooth;
+}   
+
+body,
+button,
+input,
+textarea {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+/* Seccion header */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--body-color);
+    box-shadow: 0 1px 4px rgba(146,161,176,.15);
+    z-index: var(--z-fixed);
+}
+
+.nav {
+    height: calc(var(--header-height) + 1.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.nav-logo,
+.nav-toggle {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+.nav-list {
+    list-style: none;
+    display: flex;
+    column-gap: 2rem;
+}
+
+.nav-list li a {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    text-decoration: none;
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+    transition: .3s ease, transform .2s ease;
+}
+
+
+/*--Hover --*/
+.nav-list li a:hover {
+    color: var(--acento-color);
+    transform: translateY(-2px);
+}
+/* Botón hamburguesa */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-list {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #1a1a1a;
+    flex-direction: column;
+    gap: 1rem;
+    width: 200px;
+    padding: 1rem;
+    display: none;
+  }
+
+  .nav-list.show-menu {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
